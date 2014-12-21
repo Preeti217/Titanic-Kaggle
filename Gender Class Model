@@ -1,0 +1,9 @@
+train <- read.csv("C:/Users/Preeti/Desktop/RCoursera/titanic/train.csv")
+test <- read.csv("C:/Users/Preeti/Desktop/RCoursera/titanic/test.csv")
+test$Survived <- 0
+test$Survived[test$Sex == "female"] <- 1
+test$Survived[test$Sex == "female" & test$Pclass == 3 and test$Fare >= 20] <- 0
+View(test)
+submit <- data.frame(PasseengerId = test$PassengerId , Survived = test$Survived)
+write.csv(submit, file = "genderclassmodel.csv", row.names = False)
+View(genderclassmodel)
